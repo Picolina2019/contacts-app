@@ -10,6 +10,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
+import { CopyToClipBoardText } from '../../../Components/copyToClopBoardText';
+import { NATIONALITIES_FULL_NAME } from '../../../constans/nationality';
 
 const useStyles = makeStyles({
   table: {},
@@ -44,10 +46,21 @@ export const ContactsTable = ({ data }) => {
                 {format(parseISO(contact.dob.date), 'MM/dd/yyyy')}
                 <Typography>{contact.dob.age} years</Typography>
               </TableCell>
-              <TableCell>4</TableCell>
-              <TableCell>5</TableCell>
-              <TableCell>6</TableCell>
-              <TableCell>7</TableCell>
+              <TableCell>
+                <CopyToClipBoardText text={contact.email} />
+              </TableCell>
+              <TableCell>
+                <CopyToClipBoardText text={contact.phone} />
+              </TableCell>
+              <TableCell>
+                <Typography>{contact.location.country}</Typography>
+                <Typography>
+                  {contact.location.city}, {contact.location.street.name}{' '}
+                  {contact.location.street.number}
+                </Typography>
+              </TableCell>
+
+              <TableCell>{NATIONALITIES_FULL_NAME[contact.nat]} </TableCell>
             </TableRow>
           ))}
         </TableBody>
