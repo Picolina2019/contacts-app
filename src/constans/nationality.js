@@ -13,8 +13,8 @@ export const NATIONALITIES = {
   IR: 'IR',
   NO: 'NO',
   NL: 'NL',
-  NZ: 'NZ',
-  TR: 'TZ',
+
+  TR: 'TR',
   US: 'US',
 };
 export const NATIONALITIES_FULL_NAME = {
@@ -31,7 +31,7 @@ export const NATIONALITIES_FULL_NAME = {
   [NATIONALITIES.IE]: 'Irish',
   [NATIONALITIES.IR]: 'Iranian',
   [NATIONALITIES.NO]: 'Norwegian',
-  [NATIONALITIES.NZ]: 'New Zealand',
+  [NATIONALITIES.NL]: 'New Zealand',
   [NATIONALITIES.TR]: 'Turkish',
   [NATIONALITIES.US]: 'American',
 };

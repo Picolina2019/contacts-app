@@ -55,7 +55,7 @@ export const ContactsTable = ({ data }) => {
               <TableCell>
                 <Typography>{contact.location.country}</Typography>
                 <Typography>
-                  {contact.location.city}, {contact.location.street.name}{' '}
+                  {contact.location.city}, {contact.location.street.name}
                   {contact.location.street.number}
                 </Typography>
               </TableCell>
