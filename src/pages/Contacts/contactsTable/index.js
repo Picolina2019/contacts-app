@@ -70,4 +70,3 @@ export const ContactsTable = ({ data }) => {
   );
 };
 
-//  <div xs={12}>{data[0].name.first} </div>
