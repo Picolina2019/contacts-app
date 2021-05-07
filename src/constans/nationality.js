@@ -17,6 +17,7 @@ export const NATIONALITIES = {
   TR: 'TR',
   US: 'US',
 };
+
 export const NATIONALITIES_FULL_NAME = {
   [NATIONALITIES.AU]: 'Australian',
   [NATIONALITIES.BR]: 'Brazilian',

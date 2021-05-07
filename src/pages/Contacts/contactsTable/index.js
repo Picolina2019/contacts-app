@@ -16,9 +16,9 @@ import { NATIONALITIES_FULL_NAME } from '../../../constans/nationality';
 const useStyles = makeStyles({
   table: {},
 });
-export const ContactsTable = ({ data }) => {
+export const ContactsTable = ({ contacts }) => {
   const classes = useStyles();
-  console.log(data)
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label='contacts table'>
@@ -34,7 +34,7 @@ export const ContactsTable = ({ data }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((contact) => (
+          {contacts.map((contact) => (
             <TableRow key={contact.login.uuid}>
               <TableCell component='th' scope='row'>
                 <Avatar src={contact.picture.thumbnail} alt='' />
@@ -69,4 +69,3 @@ export const ContactsTable = ({ data }) => {
     </TableContainer>
   );
 };
-
