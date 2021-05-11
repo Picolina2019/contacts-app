@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Loader from 'react-loader-spinner';
 import { VIEW_MODE } from './constans';
 import { ContactsFilters } from './ContactsFilters';
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) =>
 const defaultFilters = {
   fullname: '',
   gender: 'all',
-  nationality:'all'
+  nationality: 'all',
 };
 const filterByName = ({ first, last }, fullname) =>
   first.toLowerCase().includes(fullname.toLowerCase()) ||
@@ -52,21 +52,22 @@ export const Contacts = () => {
   const classes = useStyles();
   const [dataViewMode, setDataViewMode] = useDataViewMode();
   const [filters, setFilters] = useState(defaultFilters);
-  const onChangeFilters = (name, value) => {
+
+  const onChangeFilters = useCallback((name, value) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
       [name]: value,
     }));
-  };
+  }, []);
   const filteredContacts = data
     .filter((c) => filterByName(c.name, filters.fullname))
     .filter((c) => filterByGender(filters.gender, c.gender))
     .filter((c) => filterByNationality(filters.nationality, c.nat));
-  console.log(filteredContacts);
-  const onClear=()=>{
+
+  const onClear = useCallback(() => {
     setFilters(defaultFilters);
-  }
-console.log(data);
+  }, []);
+
   return (
     <Container className={classes.root}>
       <Grid container>
